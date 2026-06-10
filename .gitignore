@@ -1,0 +1,19 @@
+# Ignore everything by default
+*
+
+# Allow the MOSJE project directory
+!Downloads/
+!Downloads/MOSJE/
+!Downloads/MOSJE/**
+
+# Ignore extracted/temporary files within the project
+Downloads/MOSJE/mosje_chat/BRD_content.txt
+Downloads/MOSJE/mosje_chat/extract_doc.ps1
+Downloads/MOSJE/mosje_chat/__pycache__/
+Downloads/MOSJE/mosje_chat/backend/__pycache__/
+Downloads/MOSJE/mosje_chat/backend/chroma_db/
+Downloads/MOSJE/mosje_chat/backend/*.db
+Downloads/MOSJE/mosje_chat/.env
+
+# Keep the gitignore itself
+!.gitignore
