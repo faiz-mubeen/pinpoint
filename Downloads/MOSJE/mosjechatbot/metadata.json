@@ -1,0 +1,6 @@
+{
+  "name": "MoSJE AI Chatbot",
+  "description": "An interactive, futuristic, and feature-loaded cognitive helpdesk chatbot for the Ministry of Social Justice & Empowerment (MoSJE), Government of India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
