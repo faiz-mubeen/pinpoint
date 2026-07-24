@@ -13,31 +13,7 @@ The default model is `gemini-3.5-flash` and it is recommended to use this for op
 
 ## How it works
 
-```
-User gesture (Alt+Shift+P / popup)
-        │
-        ▼
-background.js ── captureVisibleTab ──► frozen screenshot
-        │                                     │
-        ▼                                     ▼
-content/content.js (closed Shadow DOM overlay)
-   • cursor loupe (2.3× live magnifier + crosshair)
-   • Pin mode: click → animated pin + auto region
-   • Box mode: drag → marching-ants ring + spotlight cut-out
-   • crop is padded 14%, upscaled to ≥512px if tiny
-   • full shot downscaled to ≤1568px with the selection drawn on it
-        │  (port: "pinpoint-ask")
-        ▼
-background.js — agentic pipeline
-   Stage A  TRIAGE   → JSON: is_diagram, domain, region guess + confidence,
-                       visual evidence, ambiguities, safety flags
-   [gate]            → dangerous-capability flag stops here with a refusal
-   Stage B  ANSWER   → streamed; grounded in full shot + crop + triage notes,
-                       structured as Answer / How I read the diagram /
-                       Confidence & caveats
-   Stage C  VERIFY   → optional JSON self-audit: pass / minor issues / fail
-                       with corrections, rendered as a badge on the answer
-```
+![PinPoint Architecture](https://raw.githubusercontent.com/faiz-mubeen/architecture/Pinpoint arch.png)
 
 Why two images? The crop gives the model pixel detail on the pointed part; the full screenshot (with the selection outlined in teal on it) gives global context — labels elsewhere, arrows entering the region, the figure caption. The triage stage exists so the answer stage starts from a stated hypothesis it must verify against pixels, instead of free-associating.
 
