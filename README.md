@@ -13,7 +13,7 @@ The default model is `gemini-3.5-flash` and it is recommended to use this for op
 
 ## How it works
 
-![PinPoint Architecture](https://raw.githubusercontent.com/faiz-mubeen/architecture/Pinpoint arch.png)
+![PinPoint Architecture](https://raw.githubusercontent.com/faiz-mubeen/architecture/Pinpoint.png)
 
 Why two images? The crop gives the model pixel detail on the pointed part; the full screenshot (with the selection outlined in teal on it) gives global context — labels elsewhere, arrows entering the region, the figure caption. The triage stage exists so the answer stage starts from a stated hypothesis it must verify against pixels, instead of free-associating.
 
