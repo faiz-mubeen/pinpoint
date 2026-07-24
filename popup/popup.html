@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>PinPoint</title>
+</head>
+<body>
+  <header class="head">
+    <span class="dot"></span>
+    <h1>PinPoint</h1>
+    <span class="ver">v1.0</span>
+  </header>
+
+  <button id="start" class="primary">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.1-6-10a6 6 0 1 1 12 0c0 4.9-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
+    Start pointing on this page
+  </button>
+  <p class="kbd-hint">or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> anywhere</p>
+
+  <section class="card">
+    <label class="field">
+      <span class="label">Gemini API key</span>
+      <div class="keyrow">
+        <input id="apiKey" type="password" placeholder="AIza…" autocomplete="off" spellcheck="false" />
+        <button id="testKey" class="mini" title="Test the key">Test</button>
+      </div>
+      <span id="keyStatus" class="status"></span>
+      <span class="foot">Stored only on this device (chrome.storage.local). Get a key at aistudio.google.com.</span>
+    </label>
+
+    <label class="field">
+      <span class="label">Model</span>
+      <select id="model">
+        <option value="gemini-3.5-flash">gemini-3.5-flash (recommended)</option>
+        <option value="gemini-2.5-pro">gemini-2.5-pro</option>
+        <option value="gemini-2.5-flash">gemini-2.5-flash (faster, cheaper)</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="label">Answer depth</span>
+      <div class="seg" id="depthSeg">
+        <button data-v="eli5">Simple</button>
+        <button data-v="standard" class="on">Standard</button>
+        <button data-v="expert">Expert</button>
+      </div>
+    </label>
+  </section>
+
+  <section class="card">
+    <label class="toggle">
+      <input type="checkbox" id="guidedMode" />
+      <span class="tog"></span>
+      <span class="tlabel"><strong>Guided mode</strong><em>Hints and questions instead of final answers — for real learning</em></span>
+    </label>
+    <label class="toggle">
+      <input type="checkbox" id="verifyPass" checked />
+      <span class="tog"></span>
+      <span class="tlabel"><strong>Self-check answers</strong><em>A second pass audits each answer for errors (uses extra tokens)</em></span>
+    </label>
+    <label class="toggle">
+      <input type="checkbox" id="privacyBlur" checked />
+      <span class="tog"></span>
+      <span class="tlabel"><strong>Privacy alerts</strong><em>Warn when personal info appears in a capture</em></span>
+    </label>
+  </section>
+
+  <footer class="foot-note">
+    Screenshots are sent to Google's Gemini API only when you press Ask. PinPoint stores nothing.
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
